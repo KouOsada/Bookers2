@@ -14,50 +14,46 @@
 
     <!--ヘッダー-->
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand" href="/">
-            <span>Bookers</span>
-          </a>
-
-          <button class="navbar-toggler collapsed" type="button" data-toggle="callapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="navbar-collapse collapse" id="navbarNavDropdown" style>
-            <ul class="navbar-nav ml-auto">
-              <% if user_signed_in? %>
-                <li>
-                  <%= link_to "Home", root_path, class: 'nav-link text-light' %>
-                </li>
-                <li>
-                  <%= link_to "Users", users_path, class: 'nav-link text-light' %>
-                </li>
-                <li>
-                  <%= link_to "Books", books_path, class: 'nav-link text-light' %>
-                </li>
-                <li>
-                  <%= link_to "logout", destroy_user_session_path, class: 'nav-link text-light' %>
-                </li>
-                <% else %>
-                <li>
-                  <%= link_to "Home", root_path, class: 'nav-link text-light' %>
-                </li>
-                <li>
-                  <%= link_to "About",  class: 'nav-link text-light' %>
-                </li>
-                <li>
-                  <%= link_to "sign up", new_user_registration_path, class: 'nav-link text-light' %>
-                </li>
-                <li>
-                  <%= link_to "login", new_user_session_path, class: 'nav-link text-light' %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/"><span>Bookers</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to "Home", root_path, class: 'nav-link text-light' %>
+            </li>
+            <li>
+              <%= link_to "Users", users_path, class: 'nav-link text-light' %>
+            </li>
+            <li>
+              <%= link_to "Books", books_path, class: 'nav-link text-light' %>
+            </li>
+            <li>
+              <%= link_to "logout", destroy_user_session_path, class: 'nav-link text-light' %>
+            </li>
+            <% else %>
+            <li>
+              <%= link_to "Home", root_path, class: 'nav-link text-light' %>
+            </li>
+            <li>
+              <%= link_to "About",  class: 'nav-link text-light' %>
+            </li>
+            <li>
+              <%= link_to "sign up", new_user_registration_path, class: 'nav-link text-light' %>
+            </li>
+            <li>
+              <%= link_to "login", new_user_session_path, class: 'nav-link text-light' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
     <!--ヘッダーここまで-->
 
     <!--メイン-->
