@@ -12,6 +12,7 @@
 
   <body>
 
+    <!--ヘッダー-->
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -57,7 +58,25 @@
         </div>
       </nav>
     </header>
+    <!--ヘッダーここまで-->
 
+    <!--メイン-->
+    <main>
     <%= yield %>
+    </main>
+    <!--メインここまで-->
+
+    <!--フッター-->
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--フッターここまで-->
+
   </body>
 </html>
