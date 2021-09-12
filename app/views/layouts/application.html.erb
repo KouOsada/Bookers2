@@ -33,7 +33,7 @@
               <%= link_to "Books", books_path, class: 'nav-link text-light' %>
             </li>
             <li>
-              <%= link_to "logout", destroy_user_session_path, class: 'nav-link text-light' %>
+              <%= link_to "logout", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
             </li>
             <% else %>
             <li>
