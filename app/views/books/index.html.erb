@@ -2,27 +2,12 @@
 
 <div class='container px-5 px-sm-0'>
   <div class='row'>
+    <div class="col-md-3">
 
-    <!--Userinfo-->
-    <div class='col-md-3'>
-      <h2>User info</h2>
-      <table class='table'>
-        <tr><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></tr>
-        <tr>
-	        <th>name</th>
-	        <th><%= current_user.name %></th>
-        </tr>
-        <tr>
-          <th>introduction</th>
-	        <th><%= current_user.introduction %></th>
-        </tr>
-      </table>
-
-      <div class="row">
-        <a class="btn btn-outline-secondary btn-block fas fa-user-cog" href="/users/edit"></a>
-      </div>
+      <!--Userinfo-->
+      <%= render 'books/userinfo', user: @user %>
       <!--Userinfoここまで-->
-      
+
 
 　　　<!--投稿フォーム-->
       <h2 class="mt-3">New book</h2>
@@ -36,13 +21,12 @@
           <%= f.text_area :opinion %>
         </div>
         <div class="form-group">
-          <a class="btn btn-success" href="/books/create">Create book</a>
+          <%= f.submit "Create Book", class: 'btn btn-success' %>
         </div>
       <% end %>
+      <!--投稿フォームここまで-->
     </div>
-    <!--投稿フォームここまで-->
-    
-    
+
 　　<!--一覧表示　-->
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
@@ -59,8 +43,12 @@
         <% @books.each do |book| %>
         <tbody>
           <tr>
-            <td><%= attachment_image_tag @user, :profile_image, :fill, 10, 10, fallback: "no_image.jpg" %></td>
-            <td><%= link_to book.title %></td>
+            <td><%= attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %></td>
+            <td>
+              <%= link_to book_path(book.id) do %>
+                <%= book.title %>
+              <% end %>
+            </td>
             <td><%= book.opinion %></td>
           </tr>
         <tbody>
