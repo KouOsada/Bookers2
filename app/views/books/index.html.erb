@@ -1,3 +1,16 @@
+<h2>User info</h2>
+
+<table>
+  <tr><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></tr>
+  <tr>
+	  <th>name</th>
+	  <th></th>
+  </tr>
+  <tr>
+	  <th>introduction</th>
+	  <th></th>
+  </tr>
+</table>
 
 
 
@@ -13,9 +26,33 @@
   </div>
   <div>
     <%= f.label :opinion%><br />
-    <%= f.text_area :body %>
+    <%= f.text_area :opinion %>
   </div>
   <div>
     <%= f.submit "Create Book" %>
   </div>
 <% end %>
+
+
+<table>
+
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <% @books.each do |book| %>
+    <tbody>
+      <tr>
+        <td><%= attachment_image_tag @user, :profile_image, :fill, 20, 20, fallback: "no_image.jpg" %></td>
+        <td><%= book.title, book_path(book.id) %></td>
+        <td><%= book.opinion %></td>
+      </tr>
+    <tbody>
+  <% end %>
+
+</table>
