@@ -1,0 +1,28 @@
+<p id="notice"></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>Editing Book</h1>
+
+      <%= form_with model: @book, local:true do |f| %>
+      <div class="form-group">
+        <%= f.label :title %><br />
+        <%= f.text_field :title %>
+      </div>
+      <div class="form-group">
+        <%= f.label :opinion %><br />
+        <%= f.text_area :opinion %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Update Book", class: 'btn btn-success' %>
+      </div>
+      <% end %>
+
+      <%= link_to "Show", book_path(@book) %>
+      <%= "|" %>
+      <%= link_to "Back", books_path %>
+
+    </div>
+  </div>
+</div>
