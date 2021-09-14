@@ -6,7 +6,25 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def create
+    @book = Book.new(book_params)
+    @book.user_id = current_user.id
+
+    if
+      @book.save
+      flash[:success] = "You have created book successfully."
+      redirect_to
+      book_path(@book)
+    else
+      @user = current_user
+      @users = User.all
+      render :index
+    end
+
+  end
+
   def show
+    @book = Book.new
     @user = User.find(params[:id])
     @books = @user.books.page(params[:page]).reverse_order
   end
