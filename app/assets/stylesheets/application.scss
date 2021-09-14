@@ -14,6 +14,21 @@
  *= require_self
  */
 
+ #notice
+ {
+  color: green;
+ }
+
+.notice
+{
+ color: green;
+}
+
+.alert
+{
+ color: green;
+}
+
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
