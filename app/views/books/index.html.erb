@@ -29,7 +29,7 @@
         </div>
         <div class="form-group">
           <%= f.label :opinion%><br />
-          <%= f.text_area :opinion %>
+          <%= f.text_area :body %>
         </div>
         <div class="form-group">
           <%= f.submit "Create Book", class: 'btn btn-success' %>
@@ -56,7 +56,9 @@
         <tbody>
           <tr>
             <td>
-              <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %>
+              <%= link_to user_path(book.user.id) do %>
+                <%= attachment_image_tag book.user, :profile_image, :fill, 20, 20, fallback: "no_image.jpg" %>
+              <% end %>
             </td>
             <td>
               <%= link_to book_path(book.id) do %>
@@ -64,7 +66,7 @@
               <% end %>
             </td>
             <td>
-              <%= book.opinion %>
+              <%= book.body %>
             </td>
           </tr>
         <tbody>
