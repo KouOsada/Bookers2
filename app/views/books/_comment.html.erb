@@ -3,7 +3,7 @@
     <% book_comment_user = book_comment.user %>
     <tr>
     	<td>
-    		<%= link_to user_path(book_comment_user), class: "user_#{book_comment_user.id}" do %>
+    		<%= link_to user_path(book_comment_user.id) do %>
       		<%= attachment_image_tag book_comment_user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %><br>
       		<%= book_comment_user.name %>
     		<% end %>
