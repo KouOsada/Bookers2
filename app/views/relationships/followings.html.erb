@@ -1,31 +1,31 @@
 <div class:="container px-5 px-sm-0">
   <div class="row">
-
-
-    <h2>Follow Users</h2>
-    <% if @users.exists? %>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>image</th>
-            <th>name</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user| %>
+    <div class="col-md-10">
+      <h2>Follow Users</h2>
+      <% if @users.exists? %>
+        <table class="table">
+          <thead>
             <tr>
-              <td><%= attachment_image_tag(user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg") %></td>
-              <td><%= user.name %></td>
-              <td>フォロー数：<%= user.followings.count %></td>
-              <td>フォロワー数：<%= user.followers.count %></td>
+              <th>image</th>
+              <th>name</th>
+              <th></th>
+              <th></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% else %>
-      <p>ユーザーはいません。</p>
-    <% end %>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= attachment_image_tag(user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg") %></td>
+                <td><%= user.name %></td>
+                <td>フォロー数：<%= user.followings.count %></td>
+                <td>フォロワー数：<%= user.followers.count %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p>ユーザーはいません。</p>
+      <% end %>
+    </div>
   </div>
 </div>
