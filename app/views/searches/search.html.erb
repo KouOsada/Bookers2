@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-xs-12">
     <% if @model == "user" %>
-      <h2>Users serach for '<%= @value %>'</h2>
+      <h2>Users serach for '<%= @content %>'</h2>
       <table class="table">
         <thead>
           <tr>
@@ -10,10 +10,10 @@
             <th>Introduction</th>
           </tr>
         </thead>
-        <% @datas.each do |user| %>
+        <% @records.each do |user| %>
           <tbody>
             <tr>
-              <td><%= attachment_image_tag (user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg") %></td>
+              <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %></td>
               <td><%= link_to user.name, user_path(user.id) %></td>
               <td><%= user.introduction %></td>
             </tr>
@@ -21,7 +21,7 @@
         <% end %>
       </table>
     <% elsif @model == "book" %>
-      <h2>Books search for '<%= @value %>'</h2>
+      <h2>Books search for '<%= @content %>'</h2>
       <table class="table">
         <thead>
           <tr>
@@ -30,10 +30,10 @@
             <th>Opinion</th>
           </tr>
         </thead>
-        <% @datas.each do |book| %>
+        <% @records.each do |book| %>
           <tbody>
             <tr>
-              <td><%= attachment_image_tag (book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg") %></td>
+              <td><%= attachment_image_tag(book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg") %></td>
               <td><%= link_to book.title, book_path(book.id) %></td>
               <td><%= book.body %></td>
             </tr>

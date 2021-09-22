@@ -1,64 +1,64 @@
 class SearchesController < ApplicationController
   
   def search
-    @model = params["serach"]["model"]
-    @value = params["search"]["value"]
-    @how = params["search"]["how"]
-    @datas = serach_for(@how, @model, @value)
+    @model = params["model"]
+    @content = params["content"]
+    @method = params["method"]
+    @records = serach_for(@model, @content, @method)
   end
   
   private
   
-  def match(model, value)
+  def match(model, content)
     if 
       model == 'user'
-      User.where(name: value)
+      User.where(name: content)
     elsif
       model == 'book'
-      Book.where(title: value)
+      Book.where(title: content)
     end
   end
   
-  def forward(model, value)
+  def forward(model, content)
     if 
       model == 'user'
-      User.where("name LIKE ?", "#{value}%")
+      User.where("name LIKE ?", "#{content}%")
     elsif
       model == 'book'
-      Book.where("title LIKE ?", "#{value}%")
+      Book.where("title LIKE ?", "#{content}%")
     end
   end
   
-  def backward(model, value)
+  def backward(model, content)
     if
       model == 'user'
-      User.where("name LIKE ?", "%#{value}")
+      User.where("name LIKE ?", "%#{content}")
     elsif
       model == 'book'
-      Book.where("title LIKE ?", "%#{value}")
+      Book.where("title LIKE ?", "%#{content}")
     end
   end
   
-  def partial(model, value)
+  def partial(model, content)
     if
       model == 'user'
-      User.where("name LIKE ?", "%#{value}%")
+      User.where("name LIKE ?", "%#{content}%")
     elsif
       model == 'book'
-      Book.where("title LIKE ?", "%#{value}%")
+      Book.where("title LIKE ?", "%#{content}%")
     end
   end
   
-  def serach_for(how, model, value)
-    case how
+  def serach_for(model, content, method)
+    case method
     when 'match'
-      match(model, value)
+      match(model, content)
     when 'forward'
-      forward(model, value)
+      forward(model, content)
     when 'backward'
-      backward(model, value)
+      backward(model, content)
     when 'partial'
-      partial(model, value)
+      partial(model, content)
     end
   end
   
