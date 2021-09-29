@@ -9,7 +9,7 @@
     <div class='col-md-8 offset-md-1'>
   		<h2>Book detail</h2>
   		<table class='table'>
-  		  <tr>
+  		  <tr id="book_<%= @book.id %>">
   		    <td><%= link_to user_path(@book.user) do %>
             <%= attachment_image_tag(@book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %><br>
             <%= @book.user.name %>
@@ -17,7 +17,7 @@
           </td>
           <td><%= link_to @book.title, book_path(@book) %></td>
           <td><%= @book.body %></td>
-          <td class="favorites"><%= render "favorites/favorite", book: @book %></td>
+          <td class="favorite-btn"><%= render "favorites/favorite", book: @book %></td>
           <td>コメント数：<%= @book.book_comments.count %></td>
           <% if @book.user == current_user %>
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
